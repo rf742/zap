@@ -40,11 +40,25 @@ void write(std::string outfile, std::vector<P> points){
 	std::ofstream stream(outfile);
 	Writer<delimiter<','>> writer(stream);
 	std::vector<std::string> holder;
-	holder.push_back();
+	holder.push_back("x");
+	holder.push_back("y");
+	holder.push_back("q");
+	holder.push_back("F_net");
+	holder.push_back("F_x");
+	holder.push_back("F_y");
+	holder.push_back("Angle");
+	writer.write_row(holder);
+	holder.clear();
 	for(auto &p : points) {
-		holder.push_back("dog");	
-		holder.push_back("cat");
+		holder.push_back(conv(p.x));	
+		holder.push_back(conv(p.y));
+		holder.push_back(conv(p.q));
+		holder.push_back(conv(p.magf));
+		holder.push_back(conv(p.fx));
+		holder.push_back(conv(p.fy));
+		holder.push_back(conv(p.netangle));
 		writer.write_row(holder);
+		holder.clear();
 
 	}
 	stream.close();
