@@ -2,7 +2,6 @@
 #include <fstream>
 #include <vector>
 #include <cmath>
-#include <cstdio>
 #include <argparse.hpp>
 #include <tabulate.hpp>
 #include <sstream>
