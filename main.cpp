@@ -99,7 +99,10 @@ std::vector<P> getPoints(std::string filename){
 
 int main(int argc, char *argv[]){
 	argparse::ArgumentParser program("zap");
-	program.add_argument("infile").help("file to read");
+	program.add_argument("infile").help("file to read in coordinates and charges");
+	program.add_argument("-c", "--csv").help("write data out to csv file")
+		.default_value(false)
+		.implicit_value(true);
 	try {
 	program.parse_args(argc, argv);
 	}
@@ -158,13 +161,11 @@ int main(int argc, char *argv[]){
 	  .font_style({FontStyle::underline})
 	  .font_background_color({Color::red});
 	std::cout << u << "\n";
-	write("dog.csv",p);
+	if (program["--csv"] == true) {
+		write("dog.csv",p);
+	}
 	return 0;
 }
-
-
-
-
 
 
 
