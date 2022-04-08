@@ -2,10 +2,12 @@
 #include <fstream>
 #include <vector>
 #include <cmath>
+#include <sstream>
+#include <chrono>
+#include <iomanip>
+#include <csv2.hpp>
 #include <argparse.hpp>
 #include <tabulate.hpp>
-#include <sstream>
-#include <csv2.hpp>
 
 using namespace tabulate;
 using namespace csv2;
@@ -162,7 +164,13 @@ int main(int argc, char *argv[]){
 	  .font_background_color({Color::red});
 	std::cout << u << "\n";
 	if (program["--csv"] == true) {
-		write("dog.csv",p);
+		auto now = std::chrono::system_clock::now();
+		auto UTC = std::chrono::duration_cast<std::chrono::seconds>(now.time_since_epoch()).count();
+		auto in_time_t = std::chrono::system_clock::to_time_t(now);
+		std::stringstream datetime;
+		datetime << std::put_time(std::localtime(&in_time_t), "%Y%m%d%H%M%S");
+		std::string out = "zap_data_" + datetime.str() + ".csv";
+		write(out,p);
 	}
 	return 0;
 }
