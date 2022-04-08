@@ -1,0 +1,6 @@
+# Below are 3 charges
+# These are from a worked example available online
+# see https://farside.ph.utexas.edu/teaching/316/lectures/node20.html
+0,4,-6E-6
+0,0,4E-6
+3,0,2E-6
