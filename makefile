@@ -1,3 +1,6 @@
-zap: main.cpp
+CXX = g++
+CXXFLAGS = -Wall -std=c++17
+
+build/zap: main.cpp
 	mkdir -p build/
-	g++ main.cpp -Wall -o build/zap  -I./include/ --std=c++17
+	$(CXX) $(CXXFLAGS) main.cpp -o build/zap  -I./include/
