@@ -57,10 +57,6 @@ void write(std::string outfile, std::vector<P> points){
 	stream.close();
 	std::cout << "Stream closed: " << outfile << " written.";
 }
-
-
-
-
 // retrieves point charges from file and stores in a vector of P objects.
 std::vector<P> getPoints(std::string filename){
 	std::vector<P> points;
@@ -88,7 +84,6 @@ std::vector<P> getPoints(std::string filename){
 	return points;
 
 }
-
 int main(int argc, char *argv[]){
 	argparse::ArgumentParser program("zap");
 	program.add_argument("infile").help("file to read in coordinates and charges");
@@ -163,8 +158,3 @@ int main(int argc, char *argv[]){
 	}
 	return 0;
 }
-
-
-
-
-
