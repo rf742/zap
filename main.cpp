@@ -74,8 +74,6 @@ std::vector<P> getPoints(std::string filename){
 	std::vector<P> points;
 	std::string st_x, st_y, st_q;
 	int index_x;
-	int index_y;
-	int index_q;
 	std::string remainder;
 	int start =0, end;
 	std::ifstream infile(filename);
@@ -161,11 +159,10 @@ int main(int argc, char *argv[]){
 	  .padding_bottom(1)
 	  .font_align(FontAlign::center)
 	  .font_style({FontStyle::underline})
-	  .font_background_color({Color::red});
+	  .font_background_color(Color::red);
 	std::cout << u << "\n";
 	if (program["--csv"] == true) {
 		auto now = std::chrono::system_clock::now();
-		auto UTC = std::chrono::duration_cast<std::chrono::seconds>(now.time_since_epoch()).count();
 		auto in_time_t = std::chrono::system_clock::to_time_t(now);
 		std::stringstream datetime;
 		datetime << std::put_time(std::localtime(&in_time_t), "%Y%m%d%H%M%S");

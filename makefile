@@ -1,3 +1,3 @@
 zap: main.cpp
 	mkdir -p build/
-	g++ main.cpp -Ofast -o build/zap  -I./include/ --std=c++17
+	g++ main.cpp -Wall -o build/zap  -I./include/ --std=c++17
