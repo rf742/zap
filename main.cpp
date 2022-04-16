@@ -8,6 +8,7 @@
 #include <csv2.hpp>
 #include <argparse.hpp>
 #include <tabulate.hpp>
+#include "point.h"
 
 using namespace tabulate;
 using namespace csv2;
@@ -16,15 +17,6 @@ using namespace csv2;
 #define K 8.988E+9
 #define ELECTRON_CHARGE -1.60221766E-19
 
-class P {
-	public:
-		long double x,y,q,fx,fy,magf,netangle;
-		P(long double a, long double b, long double c) {
-			x = a;
-			y = b;
-			q = c;
-		}
-};
 // This function takes the doubles of the point charge
 // and makes them into strings, keeping scientific notation
 // for numbers that are very large/small
