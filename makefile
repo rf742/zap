@@ -10,7 +10,7 @@ build/test: point.o test_main.o test_point.o
 
 .PHONY: clean
 clean:
-	rm $(binaries) *.o
+	rm *.o
 
 .PHONY: all
 all: $(binaries)
